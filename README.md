@@ -58,3 +58,20 @@ opportunities
 threats
 ⦁	map and image copyrights (some places even claim to have a copyright on their official state flag...)
 ⦁	maintaining political neutrality and credibility in the face of border disputes and choosing key representations for countries
+
+
+flat trivia hierarchy goal
+
+each trivia item will have
+- the information itself (name, picture, number, etc.)
+- a flag to say what category of information it is (country, flag, river, GDP, etc.)
+- a flag to say if it can be used as a question
+- links to all possible answers
+
+this allows trivia that don't have any, or have more than 1, country to exist seamlessly in the database instead of being limited to trivia that nicely fits an Object Oriented model of countries
+it also allows a question like "river" to easily point to all the countries it flows through
+or for two contries to point to the same language, and that language to point back to both of them
+
+adding/maintaining information to the database can still be done with a hierarchy when it makes sense by using templates
+Call up a trivia, and it will display all, or a pre-defined set of, the linked information as if they were members of it, but really france links to paris the same way paris links to france and neither are members of eachother, and a treaty could link back to paris without france or paris being linked to that treaty
+
