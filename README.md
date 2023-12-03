@@ -3,8 +3,7 @@
 Short Description:
 Learn and stay up-to-date of Geography Trivia with spaced repetition. Establish a Mind Map of the globe with latitude and longitude. Create targeted learning goals (ex: selected demographics in a region) and generate progress reports. 
 The goal is easy-to-use software for mobile devices for people to learn the name and location of all countries which then enables faster learning and understanding of global issues. 
-Mnemonic theory suggests that learning SEVERAL pieces of interlinked or useful trivia for each country speeds up knowledge acquisition and increases retention.
-Therefore, user can select from a broad range of trivia to learn.
+Mnemonic theory suggests that learning SEVERAL pieces of interlinked or useful trivia for each country speeds up knowledge acquisition and increases retention. Therefore, user can select from a broad range of trivia to learn.
 
 Extended Description:
 ⦁	List of countries is stored locally, can self-generate, self-update, and is journaling. Or just download an update from a mirror. 
@@ -14,6 +13,7 @@ Extended Description:
 ⦁	Country and Group-based rules for determining which Trivia to learn. User can use pre-defined groups (such as continents, alliances, cultural or economic blocks), define new groups, and set rules for groups or individual countries.
 ⦁	track user progress
 ⦁	pronunciation guides/audio
+
 Trivia (subject to change)
 1.		Name
 2.		Capital
