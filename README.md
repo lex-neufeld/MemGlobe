@@ -34,7 +34,8 @@ Trivia (subject to change)
 17.		Economy
 18.		Climate
 19.		History
-	
+
+Learning goals:	
 Political Borders
 This actually goes quite quickly as every country reviewed is also a passive reivew of all neighboring countries.
 
@@ -47,7 +48,6 @@ The rest
 SWOT:
 strengths
 ⦁	lead dev (Lex) previously built a memosyn card set and memorized all countries+capitals+flags+political boundries
-
 weaknesses
 ⦁	low experience in most areas (scraping, databases, mobile apps, graphic editing) 
 ⦁	no experience in map generation or mneumonic algorythims
