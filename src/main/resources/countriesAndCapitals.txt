@@ -1,4 +1,4 @@
-https://geographyfieldwork.com/WorldCapitalCities.htm
+# https://geographyfieldwork.com/WorldCapitalCities.htm
 Afghanistan	Kabul
 Albania	Tirana (Tirane)
 Algeria	Algiers
