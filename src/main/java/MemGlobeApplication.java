@@ -11,10 +11,14 @@ public class MemGlobeApplication {
         CardSets.importList(file, currentSet);
 
         System.out.println("currentSet has size: " + currentSet.size());
-        System.out.println(currentSet.get(4).id);
-        System.out.println(currentSet.get(4).answers);
-        System.out.println(currentSet.get(11).id);
-        System.out.println(currentSet.get(11).answers);
+        System.out.println("Trivia.id is: " + currentSet.get(4).id);
+        currentSet.get(4).display.display();
+        System.out.println("Answers:");
+        currentSet.get(4).getAnswers();
+        System.out.println("Answers after adding dummy to Display.audio:");
+        currentSet.get(5).display.setAudio("pronunciation");
+        currentSet.get(4).getAnswers();
+
     }
 
 }

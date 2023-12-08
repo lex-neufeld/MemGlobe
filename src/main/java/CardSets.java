@@ -4,14 +4,15 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class CardSets {
-    static void importList(String file, ArrayList<Globe.Trivia> scopedSet) {
+    static void importList(String file, ArrayList<Globe.Trivia> currentSet) {
         try{
             Scanner myScanner = new Scanner(new File(file));
+            //TODO each node can represent a group of trivia that all point at eachother
+            int node = 0;
 
             //How wide is the list and what are the category names for each column?
             String column0 = "country";
             String column1 = "capital";
-            System.out.println(scopedSet);
 
 
             while(myScanner.hasNext()){
@@ -26,20 +27,20 @@ public class CardSets {
                 String currentColumn0Id = currentLine[0]+"_"+column0;
                 String currentColumn1Id = currentLine[1]+"_"+column1;
 
-                //set the answers for each field to the other fields
-                ArrayList<String> currentColumn0Answers = new ArrayList<>(Arrays.asList(currentColumn1Id));
-                ArrayList<String> currentColumn1Answers = new ArrayList<>(Arrays.asList(currentColumn0Id));
-
                 //create a new Trivia in currentSet for each field
-                scopedSet.add(new Globe.Trivia(currentColumn0Id, column0, true, currentColumn0Answers));
-                scopedSet.add(new Globe.Trivia(currentColumn1Id, column1, true, currentColumn1Answers));
+                currentSet.add(new Globe.Trivia(currentColumn0Id, column0, true));
+                currentSet.add(new Globe.Trivia(currentColumn1Id, column1, true));
 
+                //set the Display for each Trivia
+                currentSet.get(currentSet.size()-2).display.setText(currentLine[0]);
+                currentSet.get(currentSet.size()-1).display.setText(currentLine[1]);
+
+                //set the answers for each field to the other fields
+                currentSet.get(currentSet.size()-2).addAnswer(currentSet.get(currentSet.size()-1));
+                currentSet.get(currentSet.size()-1).addAnswer(currentSet.get(currentSet.size()-2));
 
             }
             myScanner.close();
-            file += "altered";
-            System.out.println(file);
-
 
         }catch(Exception e){
             e.printStackTrace();
