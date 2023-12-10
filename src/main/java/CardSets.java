@@ -9,36 +9,51 @@ public class CardSets {
             Scanner myScanner = new Scanner(new File(file));
             //TODO each node can represent a group of trivia that all point at eachother
             int node = 0;
-
-            //How wide is the list and what are the category names for each column?
-            String column0 = "country";
-            String column1 = "capital";
+            ArrayList<String> keys = new ArrayList<>();
+            ArrayList<String> currentNode = new ArrayList<>();
 
 
             while(myScanner.hasNext()){
                 //get next line of file split on tab
                 String[] currentLine = myScanner.nextLine().split("\t");
-                //skip lines that have been commented out with #
-                if (currentLine[0].startsWith("#")){
-                    System.out.println(currentLine[0]);
+                //Check for  #Source
+                if (currentLine[0].startsWith("#Source")){
+                    System.out.println(Arrays.toString(currentLine));
                     continue;
                 }
-                //create Trivia.id for each field by adding the contents of the field to "_category"
-                String currentColumn0Id = currentLine[0]+"_"+column0;
-                String currentColumn1Id = currentLine[1]+"_"+column1;
-
-                //create a new Trivia in currentSet for each field
-                currentSet.add(new Globe.Trivia(currentColumn0Id, column0, true));
-                currentSet.add(new Globe.Trivia(currentColumn1Id, column1, true));
-
-                //set the Display for each Trivia
-                currentSet.get(currentSet.size()-2).display.setText(currentLine[0]);
-                currentSet.get(currentSet.size()-1).display.setText(currentLine[1]);
-
-                //set the answers for each field to the other fields
-                currentSet.get(currentSet.size()-2).addAnswer(currentSet.get(currentSet.size()-1));
-                currentSet.get(currentSet.size()-1).addAnswer(currentSet.get(currentSet.size()-2));
-
+                //Check for #Key
+                if (currentLine[0].startsWith("#Key")){
+                    keys.addAll(Arrays.asList(currentLine).subList(1, currentLine.length));
+                    continue;
+                }
+                //print any other lines that have been commented out with # and skip them
+                if (currentLine[0].startsWith("#")){
+                    System.out.println(currentLine);
+                    continue;
+                }
+                //do a sanity check on the line before trying to create id for each key
+                if (!(keys.size() == currentLine.length)){
+                    System.out.println("Number of keys and number of fields doesn't match at this line. ABORTING");
+                    System.out.println(keys);
+                    System.out.println(currentLine);
+                    break;
+                }
+                //TODO fix this crap where we start at i=1 and then later .get(i-1) to skip past the index column of the source file
+                for (int i = 1; i < currentLine.length; i++){
+                    //at same time, create a new Trivia in currentSet for each field
+                    currentSet.add(new Globe.Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true));
+                    //set the Display for each Trivia
+                    currentSet.get(currentSet.size()-1).display.setText(currentLine[i]);
+                }
+                //set the answers for each Trivia to the other items
+                for (int i = 1; i < currentLine.length; i++){
+                    for (int o = 1; o < currentLine.length; o++) {
+                        if (i == o) {
+                            continue;
+                        }
+                        currentSet.get(currentSet.size() - i).addAnswer(currentSet.get(currentSet.size() - o));
+                    }
+                }
             }
             myScanner.close();
 
