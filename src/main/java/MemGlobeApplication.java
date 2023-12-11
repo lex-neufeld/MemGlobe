@@ -6,9 +6,9 @@ public class MemGlobeApplication {
     public static void main(String[] args) {
         ArrayList<Globe.Trivia> currentSet = new ArrayList<>();
         //get path of file to import
-        String file = "src/main/resources/countriesAndAreaAndPopulation.txt";
+        String file = "src/main/resources/adda247-com-countries-capital-and-currencies.txt";
 
-        CardSets.importList(file, currentSet);
+        CardSets.importAdda247(file, currentSet);
 
         System.out.println("currentSet has size: " + currentSet.size());
 
