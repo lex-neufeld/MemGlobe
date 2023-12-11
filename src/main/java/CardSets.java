@@ -1,10 +1,14 @@
+import com.lex.memglobe.objects.Trivia;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class CardSets {
-    static void importAdda247(String file, ArrayList<Globe.Trivia> currentSet){
+    static void importAdda247(String file, ArrayList<Trivia> currentSet){
         try {
             Scanner myScanner = new Scanner(new File(file));
             ArrayList<String> keys = new ArrayList<>();
@@ -14,9 +18,8 @@ public class CardSets {
             //ArrayList<String> nodes = new ArrayList<>();
 
             while(myScanner.hasNext()){
-                //get next line of file split on tab
-                String[] currentLine = myScanner.nextLine().split("\t");
-                //TODO strip out any leading and trailing whitespace
+                //get next line of file split on tab and .trim() plus lots of magic to get it to return String[]
+                String[] currentLine = Arrays.stream(myScanner.nextLine().split("\t")).map(String::trim).toArray(String[]::new);
                 //Check for  #Source
                 if (currentLine[0].startsWith("#Source")){
                     System.out.println("Source: " + Arrays.toString(currentLine));
@@ -44,9 +47,9 @@ public class CardSets {
 
                 for (int i = 0; i < currentLine.length; i++){
                     //create a new Trivia in currentSet for each item in currentLine
-                    currentSet.add(new Globe.Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true));
+                    currentSet.add(new Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true));
                     //set the Display for each Trivia
-                    currentSet.get(currentSet.size()-1).display.setText(currentLine[i]);
+                    currentSet.get(currentSet.size()-1).getDisplay().setText(currentLine[i]);
                 }
                 //set the answers for each Trivia to the other items from currentLine
                 //TODO set .answers for Trivia IFF they are flagged askable
@@ -65,7 +68,7 @@ public class CardSets {
             e.printStackTrace();
         }
     }
-    static void importList(String file, ArrayList<Globe.Trivia> currentSet) {
+    static void importList(String file, ArrayList<Trivia> currentSet) {
         try{
             Scanner myScanner = new Scanner(new File(file));
             ArrayList<String> keys = new ArrayList<>();
@@ -102,17 +105,16 @@ public class CardSets {
                 //TODO fix this crap where we start at i=1 and then later .get(i-1) to skip past the index column of the source file
                 for (int i = 1; i < currentLine.length; i++){
                     //at same time, create a new Trivia in currentSet for each field
-                    currentSet.add(new Globe.Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true));
+                    currentSet.add(new Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true));
                     //set the Display for each Trivia
-                    currentSet.get(currentSet.size()-1).display.setText(currentLine[i]);
+                    currentSet.get(currentSet.size()-1).getDisplay().setText(currentLine[i]);
                 }
                 //set the answers for each Trivia to the other items
                 for (int i = 1; i < currentLine.length; i++){
                     for (int o = 1; o < currentLine.length; o++) {
-                        if (i == o) {
-                            continue;
+                        if (i != o) {
+                            currentSet.get(currentSet.size() - i).addAnswer(currentSet.get(currentSet.size() - o));
                         }
-                        currentSet.get(currentSet.size() - i).addAnswer(currentSet.get(currentSet.size() - o));
                     }
                 }
             }
