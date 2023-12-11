@@ -20,11 +20,10 @@ public class Globe {
             this.askable = askable;
         }
 
-        public ArrayList<Trivia> getAnswers() {
+        public void getAnswers() {
             for (Trivia answer : answers){
                 answer.display.display();
             }
-            return answers;
         }
 
         public void setAnswers(ArrayList<Trivia> answers) {

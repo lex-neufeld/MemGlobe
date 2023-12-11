@@ -1,4 +1,5 @@
-# https://geographyfieldwork.com/WorldCapitalCities.htm
+#Source https://geographyfieldwork.com/WorldCapitalCities.htm 2023.12.?? Data cleaned to remove most of the ()[] clarifications
+#Key    country capital
 Afghanistan	Kabul
 Albania	Tirana (Tirane)
 Algeria	Algiers
@@ -17,16 +18,16 @@ Barbados	Bridgetown
 Belarus	Minsk
 Belgium	Brussels
 Belize	Belmopan
-Benin	Porto Novo[1]
+Benin	Porto Novo
 Bhutan	Thimphu
-Bolivia	La Paz (administrative), Sucre (official)[2]
+Bolivia	La Paz (administrative), Sucre (official)
 Bosnia and Herzegovina	Sarajevo
 Botswana	Gaborone
 Brazil	Brasilia
 Brunei	Bandar Seri Begawan
 Bulgaria	Sofia
 Burkina Faso	Ouagadougou
-Burundi	Gitega[3]
+Burundi	Gitega
 Cambodia	Phnom Penh
 Cameroon	Yaounde
 Canada	Ottawa
@@ -40,11 +41,11 @@ Comoros	Moroni
 Congo, Democratic Republic of the	Kinshasa
 Congo, Republic of the	Brazzaville
 Costa Rica	San Jose
-Côte d'Ivoire (Ivory Coast)	Yamoussoukro[4]
+Côte d'Ivoire (Ivory Coast)	Yamoussoukro
 Croatia	Zagreb
 Cuba	Havana
 Cyprus	Nicosia
-Czech Republic (Czechia)[5]	Prague
+Czech Republic (Czechia)	Prague
 Denmark	Copenhagen
 Djibouti	Djibouti
 Dominica	Roseau
@@ -53,11 +54,11 @@ East Timor	Dili
 Ecuador	Quito
 Egypt	Cairo
 El Salvador	San Salvador
-England[6]	London
+England	London
 Equatorial Guinea	Malabo
 Eritrea	Asmara
 Estonia	Tallinn
-Eswatini (Swaziland)[7]	Mbabana[8]
+Eswatini (Swaziland)	Mbabana
 Ethiopia	Addis Ababa
 Federated States of Micronesia	Palikir
 Fiji	Suva
@@ -79,16 +80,16 @@ Honduras	Tegucigalpa
 Hungary	Budapest
 Iceland	Reykjavik
 India	New Delhi
-Indonesia	Jakarta[9]
+Indonesia	Jakarta
 Iran	Tehran
 Iraq	Baghdad
 Ireland	Dublin
-Israel	Jerusalem (very limited international recognition)[10]
+Israel	Jerusalem
 Italy	Rome
 Jamaica	Kingston
 Japan	Tokyo
 Jordan	Amman
-Kazakhstan	Astana[11]
+Kazakhstan	Astana
 Kenya	Nairobi
 Kiribati	Tarawa Atoll
 Kosovo	Pristina
@@ -105,7 +106,7 @@ Lithuania	Vilnius
 Luxembourg	Luxembourg
 Madagascar	Antananarivo
 Malawi	Lilongwe
-Malaysia	Kuala Lumpur[12]
+Malaysia	Kuala Lumpur
 Maldives	Male
 Mali	Bamako
 Malta	Valletta
@@ -119,23 +120,23 @@ Mongolia	Ulaanbaatar
 Montenegro	Podgorica
 Morocco	Rabat
 Mozambique	Maputo
-Myanmar (Burma)	Nay Pyi Taw[13]
+Myanmar (Burma)	Nay Pyi Taw
 Namibia	Windhoek
 Nauru	No official capital
 Nepal	Kathmandu
-Netherlands	Amsterdam[14]
+Netherlands	Amsterdam
 New Zealand	Wellington
 Nicaragua	Managua
 Niger	Niamey
 Nigeria	Abuja
 North Korea	Pyongyang
-North Macedonia (Macedonia)[15]	Skopje
-Northern Ireland[16]	Belfast
+North Macedonia (Macedonia)	Skopje
+Northern Ireland	Belfast
 Norway	Oslo
 Oman	Muscat
 Pakistan	Islamabad
 Palau	Melekeok
-Palestine[17]	Jerusalem (very limited international recognition)[18]
+Palestine	Jerusalem
 Panama	Panama City
 Papua New Guinea	Port Moresby
 Paraguay	Asuncion
@@ -154,7 +155,7 @@ Samoa	Apia
 San Marino	San Marino
 Sao Tome and Principe	Sao Tome
 Saudi Arabia	Riyadh
-Scotland[19]	Edinburgh
+Scotland	Edinburgh
 Senegal	Dakar
 Serbia	Belgrade
 Seychelles	Victoria
@@ -164,27 +165,27 @@ Slovakia	Bratislava
 Slovenia	Ljubljana
 Solomon Islands	Honiara
 Somalia	Mogadishu
-South Africa	Pretoria, Bloemfontein, Cape Town[20]
+South Africa	Pretoria, Bloemfontein, Cape Town
 South Korea	Seoul
 South Sudan	Juba
 Spain	Madrid
-Sri Lanka	Sri Jayawardenapura Kotte[21]
+Sri Lanka	Sri Jayawardenapura Kotte
 Sudan	Khartoum
 Suriname	Paramaribo
 Sweden	Stockholm
 Switzerland	Bern
 Syria	Damascus
-Taiwan[22]	Taipei
+Taiwan	Taipei
 Tajikistan	Dushanbe
-Tanzania	Dodoma[23]
+Tanzania	Dodoma
 Thailand	Bangkok
 Togo	Lome
 Tonga	Nuku'alofa
 Trinidad and Tobago	Port of Spain
 Tunisia	Tunis
-Türkiye (Turkey)[24]	Ankara
+Türkiye (Turkey)	Ankara
 Turkmenistan	Ashgabat
-Tuvalu	Funafuti[25]
+Tuvalu	Funafuti
 Uganda	Kampala
 Ukraine	Kyiv or Kiev
 United Arab Emirates	Abu Dhabi
@@ -196,7 +197,7 @@ Vanuatu	Port Vila
 Vatican City	Vatican City
 Venezuela	Caracas
 Vietnam	Hanoi
-Wales[26]	Cardiff
-Yemen	Sana'a[27]
+Wales	Cardiff
+Yemen	Sana'a
 Zambia	Lusaka
 Zimbabwe	Harare

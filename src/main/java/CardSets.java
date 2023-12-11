@@ -7,11 +7,11 @@ public class CardSets {
     static void importList(String file, ArrayList<Globe.Trivia> currentSet) {
         try{
             Scanner myScanner = new Scanner(new File(file));
-            //TODO each node can represent a group of trivia that all point at eachother
-            int node = 0;
             ArrayList<String> keys = new ArrayList<>();
-            ArrayList<String> currentNode = new ArrayList<>();
 
+            //TODO each node can represent a group of trivia that all point at eachother, such as a country, to facilitate maintaining groups of Trivia
+            //int currentNode = 0;
+            //ArrayList<String> nodes = new ArrayList<>();
 
             while(myScanner.hasNext()){
                 //get next line of file split on tab
@@ -28,14 +28,14 @@ public class CardSets {
                 }
                 //print any other lines that have been commented out with # and skip them
                 if (currentLine[0].startsWith("#")){
-                    System.out.println(currentLine);
+                    System.out.println(Arrays.toString(currentLine));
                     continue;
                 }
                 //do a sanity check on the line before trying to create id for each key
                 if (!(keys.size() == currentLine.length)){
                     System.out.println("Number of keys and number of fields doesn't match at this line. ABORTING");
                     System.out.println(keys);
-                    System.out.println(currentLine);
+                    System.out.println(Arrays.toString(currentLine));
                     break;
                 }
                 //TODO fix this crap where we start at i=1 and then later .get(i-1) to skip past the index column of the source file
