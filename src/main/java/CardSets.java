@@ -1,11 +1,8 @@
 import com.lex.memglobe.objects.Trivia;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class CardSets {
     static void importAdda247(String file, ArrayList<Trivia> currentSet){
@@ -13,7 +10,7 @@ public class CardSets {
             Scanner myScanner = new Scanner(new File(file));
             ArrayList<String> keys = new ArrayList<>();
 
-            //TODO each node can represent a group of trivia that all point at eachother, such as a country, to facilitate maintaining groups of Trivia
+            //TODO each node can represent a group of trivia that all point at eachother, such as a country, to facilitate maintaining/extending groups of Trivia
             //int currentNode = 0;
             //ArrayList<String> nodes = new ArrayList<>();
 
@@ -38,6 +35,7 @@ public class CardSets {
                     continue;
                 }
                 //do a sanity check on the line before trying to create id for each key
+                //TODO Carina says I should do exception handling here...
                 if (!(keys.size() == currentLine.length)){
                     System.out.println("Number of keys and number of fields doesn't match at this line. ABORTING");
                     System.out.println(keys);
