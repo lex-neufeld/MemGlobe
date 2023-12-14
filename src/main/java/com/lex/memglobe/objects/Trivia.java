@@ -9,7 +9,6 @@ public class Trivia {
     String category; //each trivia belongs to exactly one widely accepted category of Geography Trivia such as Country, Capital, River. It probably needs to be repeated in the id such as France_Country, France_Capital, Sein_River
     ArrayList<String> groups; //For establishing group rules. For internal logic, this is actually redundant with category, but makes the structure easier to understand. Examples of groups that could be used to filter trivia in or out include regions (Africa, EU), alliances (NATO, CSTO), landlocked, on the Danube.
     boolean askable; //can this trivia be used as a question to other trivia?
-
     ArrayList<Trivia> answers = new ArrayList<>(); //all the other Trivia that can be answers to this trivia
     ArrayList<Trivia> old; //previous versions of this Trivia so you know you aren't going crazy when things change
 
@@ -19,11 +18,17 @@ public class Trivia {
         this.askable = askable;
     }
 
+    public String getCategory() {
+        return category;
+    }
     public ArrayList<Trivia> getAnswers() {
+        return answers;
+    }
+    public void displayAnswers(){
         for (Trivia answer : answers){
+            System.out.print(answer.getCategory() + ": ");
             answer.display.display();
         }
-        return answers;
     }
 
     public void setAnswers(ArrayList<Trivia> answers) {
