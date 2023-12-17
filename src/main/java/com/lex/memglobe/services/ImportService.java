@@ -1,18 +1,19 @@
+package com.lex.memglobe.services;
+
+import com.lex.memglobe.objects.CardSet;
 import com.lex.memglobe.objects.Trivia;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class CardSets {
-    static void importAdda247(String file, ArrayList<Trivia> currentSet, ArrayList<String> currentNodes){
+public class ImportService {
+    public static void importAdda247(String file, CardSet currentSet){
         try {
             Scanner myScanner = new Scanner(new File(file));
             ArrayList<String> keys = new ArrayList<>();
 
-            //TODO each node can represent a group of trivia that all point at eachother, such as a country, to facilitate maintaining/extending groups of Trivia
             String node;
-            int currentNode = 0;
 
             while(myScanner.hasNext()){
                 //get next line of file, split on tab, .trim() each split, plus lots of magic to get it to return String[]
@@ -27,6 +28,11 @@ public class CardSets {
                     currentLine = String.join(",", currentLine).toLowerCase().split(",");
                     keys.addAll(Arrays.asList(currentLine).subList(1, currentLine.length)); //sublist(1, because the first item is "#Key"
                     System.out.println("Keys: " + keys);
+                    //adds all keys as categories
+                    //TODO change this to logic for selecting which keys to add
+                    for (String key : keys){
+                        currentSet.addCategory(key);
+                    }
                     continue;
                 }
                 //print any other lines that have been commented out with # and skip them
@@ -45,21 +51,21 @@ public class CardSets {
 
                 //make a node for the current line (ie, the Country)
                 node = currentLine[0];
-                currentNodes.add(node);
+                currentSet.addNode(node);
                 //for each item in currentLine
                 for (int i = 0; i < currentLine.length; i++){
                     //create a new Trivia in currentSet
-                    currentSet.add(new Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true, node));
+                    currentSet.addTrivia(new Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true, node));
                     //set the Display for each Trivia
-                    currentSet.get(currentSet.size()-1).getDisplay().setText(currentLine[i]);
+                    currentSet.getDeck().get(currentSet.getDeck().size()-1).getDisplay().setText(currentLine[i]);
                 }
                 //set the answers for each Trivia to the other items from currentLine
                 //TODO set .answers for Trivia IFF they are flagged askable
-                //TODO detect if a Trivia is a duplicate (ex: Euro€, Jerusalem) and use that one instead of creating a new one
+                //TODO detect if a Trivia.display is a duplicate (ex: Euro€, Jerusalem), use that one instead of creating a new one, and figure out what to do with Trivia.node
                 for (int i = 0; i < currentLine.length; i++){
                     for (int o = 0; o < currentLine.length; o++) {
                         if (!(i == o)) {
-                            currentSet.get(currentSet.size() - i - 1).addAnswer(currentSet.get(currentSet.size() - o - 1));
+                            currentSet.getDeck().get(currentSet.getDeck().size() - i - 1).addAnswer(currentSet.getDeck().get(currentSet.getDeck().size() - o - 1));
                         }
                     }
                 }
@@ -70,7 +76,7 @@ public class CardSets {
             e.printStackTrace();
         }
     }
-    static void importList(String file, ArrayList<Trivia> currentSet) {
+    static void importWordmeters(String file, ArrayList<Trivia> currentSet) {
         try{
             Scanner myScanner = new Scanner(new File(file));
             ArrayList<String> keys = new ArrayList<>();
