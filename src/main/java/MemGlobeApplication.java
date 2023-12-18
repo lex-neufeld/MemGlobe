@@ -17,7 +17,7 @@ public class MemGlobeApplication {
 
         //test run
         System.out.println("number of nodes is: " + currentSet.getNodes().size());
-        System.out.println("currentSet has size: " + currentSet.getDeck().size());
+        System.out.println("Deck has size: " + currentSet.getDeck().size());
         for (int i = 0; i < 12; i+=4) {
             System.out.println("----------");
             currentSet.getDeck().get(i).getDisplay().display();
