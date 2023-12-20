@@ -1,5 +1,5 @@
 #Source https://geographyfieldwork.com/WorldCapitalCities.htm 2023.12.?? Data cleaned to remove most of the ()[] clarifications
-#Key    country capital
+#Key 	country 	capital
 Afghanistan	Kabul
 Albania	Tirana (Tirane)
 Algeria	Algiers

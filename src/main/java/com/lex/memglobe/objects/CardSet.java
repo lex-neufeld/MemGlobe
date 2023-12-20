@@ -1,11 +1,12 @@
 package com.lex.memglobe.objects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CardSet {
     String name;
     ArrayList<Trivia> deck = new ArrayList<>();
-    ArrayList<String> nodes = new ArrayList<>();
+    HashMap<String, ArrayList<Trivia>> nodes = new HashMap<>();
     ArrayList<String> categories = new ArrayList<>();
 
     public CardSet(String name) {
@@ -33,21 +34,24 @@ public class CardSet {
         //TODO add some checks for nodeExists, categoryExists, !duplicateTrivia
     }
 
-    public ArrayList<String> getNodes() {
+    public HashMap<String, ArrayList<Trivia>> getNodes() {
         return nodes;
     }
 
-    public void setNodes(ArrayList<String> nodes) {
+    public void setNodes(HashMap<String, ArrayList<Trivia>> nodes) {
         this.nodes = nodes;
     }
 
-    public void addNode(String node) {
-        if (this.nodes.contains(node)){
-            //If the node is already present, something has probably gone wrong.
+    public void initNode(String node) {
+        if (this.nodes.containsKey(node)){
+            //If the node is already present, something has probably gone wrong. Generate and error and do not add a duplicate.
             System.out.println("Node already exists.");
         }else{
-            this.nodes.add(node);
+            this.nodes.put(node, new ArrayList<Trivia>());
         }
+    }
+    public void addToNode(String node, Trivia trivia){
+        nodes.get(node).add(trivia);
     }
 
     public ArrayList<String> getCategories() {

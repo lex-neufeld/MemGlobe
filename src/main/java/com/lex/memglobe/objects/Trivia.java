@@ -41,7 +41,10 @@ public class Trivia {
         this.answers = answers;
     }
     public void addAnswer(Trivia answer) {
-        answers.add(answer);
+        //discard attempts to add a trivia as an answer to itself or to add duplicate answers
+        if (this != answer && !answers.contains(answer)){
+            answers.add(answer);
+        }
     }
 
     public Display getDisplay() {
