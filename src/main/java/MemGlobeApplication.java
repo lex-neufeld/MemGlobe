@@ -21,6 +21,15 @@ public class MemGlobeApplication {
 
         System.out.println("number of nodes before merge is: " + set1.getNodes().size());
         System.out.println("Deck before merge has size: " + set1.getDeck().size());
+        //get a new node
+        String testNode = "uninitialized";
+        for (String n : set2.getNodes().keySet()){
+            if ( !set1.getNodes().containsKey(n)){
+                testNode = n;
+                break;
+            }
+        }
+
         UpdateService.mergeTrivia(set2, set1);
 
         //test run
@@ -33,10 +42,13 @@ public class MemGlobeApplication {
             System.out.println("Answers:");
             set1.getDeck().get(i).displayAnswers();
         }
+
+
+
         //small test of nodes HashMap
-        System.out.println(set1.getNodes().get("Bulgaria"));
-        System.out.println(set2.getNodes().get("Bulgaria"));
-        for (Trivia trivia : set1.getNodes().get("Bulgaria")){
+        System.out.println(set1.getNodes().get(testNode));
+        System.out.println(set2.getNodes().get(testNode));
+        for (Trivia trivia : set1.getNodes().get(testNode)){
             System.out.println("----for node------");
             trivia.getDisplay().display();
             myScanner.nextLine();
