@@ -1,4 +1,5 @@
-#Source https://geographyfieldwork.com/WorldCapitalCities.htm 2023.12.?? Data cleaned to remove most of the ()[] clarifications
+#Source 	https://geographyfieldwork.com/WorldCapitalCities.htm Data cleaned to remove most of the ()[] clarifications
+#Date	2023-12-08
 #Key 	country 	capital
 Afghanistan	Kabul
 Albania	Tirana (Tirane)

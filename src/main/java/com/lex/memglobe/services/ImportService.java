@@ -3,8 +3,11 @@ package com.lex.memglobe.services;
 import com.lex.memglobe.objects.CardSet;
 import com.lex.memglobe.objects.Trivia;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 public class ImportService {
@@ -13,13 +16,23 @@ public class ImportService {
             Scanner myScanner = new Scanner(new File(file));
             ArrayList<String> keys = new ArrayList<>();
             String node;
+            String source = "";
+            Date sourceDate = new Date(0);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             while(myScanner.hasNext()){
                 //get next line of file, split on tab, .trim() each split, plus lots of magic to get it to return String[]
                 String[] currentLine = Arrays.stream(myScanner.nextLine().split("\t")).map(String::trim).toArray(String[]::new);
-                //Check for  #Source and display it
+                //Check for  #Source, store it, display it, continue to next line
                 if (currentLine[0].startsWith("#Source")){
-                    System.out.println("Source: " + Arrays.toString(currentLine));
+                    source = currentLine[1];
+                    System.out.println("Source: " + source);
+                    continue;
+                }
+                //Check for #Date, store it, display it, continue to next line
+                if (currentLine[0].startsWith("#Date")){
+                    sourceDate = sdf.parse(currentLine[1]);
+                    System.out.println("Source Date: " + sourceDate);
                     continue;
                 }
                 //Check for #Key and create list of keys in lowercase
@@ -48,6 +61,8 @@ public class ImportService {
                     break;
                 }
 
+                //TODO ensure that source and sourceDate have been set before continuing
+
                 Trivia currentTrivia;
                 //get node name for the current line (ie, the Country)
                 node = currentLine[0];
@@ -57,7 +72,7 @@ public class ImportService {
                 //for each item in currentLine
                 for (int i = 0; i < currentLine.length; i++){
                     //create a Trivia
-                    currentTrivia = new Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),true, node);
+                    currentTrivia = new Trivia(currentLine[i]+"_"+keys.get(i), keys.get(i),node, true, source, sourceDate);
                     //add Trivia to currentSet
                     currentSet.addTrivia(currentTrivia);
                     //set the Display
