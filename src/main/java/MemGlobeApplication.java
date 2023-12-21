@@ -9,8 +9,8 @@ public class MemGlobeApplication {
 
 
     public static void main(String[] args) {
-        CardSet set1 = new CardSet("devset1");
-        CardSet set2 = new CardSet("devset2");
+        CardSet set1 = new CardSet("dev-set1");
+        CardSet set2 = new CardSet("dev-set2");
         Scanner myScanner = new Scanner(System.in);
         //get path of file to import
         String addaFile = "src/main/resources/adda247-com-countries-capital-and-currencies.txt";
@@ -35,13 +35,16 @@ public class MemGlobeApplication {
         //test run
         System.out.println("number of nodes is: " + set1.getNodes().size());
         System.out.println("Deck has size: " + set1.getDeck().size());
-        for (int i = 0; i < 12; i+=4) {
-            System.out.println("----------");
+        for (int i = 3; i < 14; i+=4) {
+            System.out.println("----------" + set1.getDeck().get(i).getSource());
+            System.out.println("----------" + set1.getDeck().get(i).getSourceDate());
             set1.getDeck().get(i).getDisplay().display();
             myScanner.nextLine();
             System.out.println("Answers:");
             set1.getDeck().get(i).displayAnswers();
         }
+
+        //small test of source and sourceDate
 
 
 
@@ -49,7 +52,8 @@ public class MemGlobeApplication {
         System.out.println(set1.getNodes().get(testNode));
         System.out.println(set2.getNodes().get(testNode));
         for (Trivia trivia : set1.getNodes().get(testNode)){
-            System.out.println("----for node------");
+            System.out.println("----for node------" + trivia.getSource());
+            System.out.println("----for node------" + trivia.getSourceDate());
             trivia.getDisplay().display();
             myScanner.nextLine();
             System.out.println("Answers:");

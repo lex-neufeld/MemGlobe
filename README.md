@@ -47,7 +47,7 @@ The rest
 
 SWOT:
 strengths
-⦁	lead dev (Lex) previously built a memosyn card set and memorized all countries+capitals+flags+political boundaries
+⦁	lead dev (Lex) previously built a Mnemosyne card set and memorized all countries+capitals+flags+political boundaries
 weaknesses
 ⦁	low experience in most areas (scraping, databases, mobile apps, graphic editing) 
 ⦁	no experience in map generation or mnemonic algorithms
@@ -68,7 +68,7 @@ each trivia item will have
 - a flag to say if it can be used as a question
 - links to all possible answers
 
-this allows trivia that don't have any, or have more than 1, country to exist seamlessly in the database instead of being limited to trivia that nicely fits an Object Oriented model of countries
+this allows trivia that don't have any, or have more than 1, country to exist seamlessly in the database instead of being limited to trivia that nicely fits an Object-Oriented model of countries
 it also allows a question like "river" to easily point to all the countries it flows through
 or for two countries to point to the same language, and that language to point back to both of them
 

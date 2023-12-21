@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Trivia {
-    private String id; //unique name
+    String id; //unique name
     Display display = new Display(); //primary information to be presented: text, audio, map, picture, etc.
     String category; //each trivia belongs to exactly one widely accepted category of Geography Trivia such as Country, Capital, River. It probably needs to be repeated in the id such as France_Country, France_Capital, Sein_River
     String node;
@@ -13,7 +13,6 @@ public class Trivia {
     boolean askable; //can this trivia be used as a question to other trivia?
     String source;
     Date sourceDate;
-
     ArrayList<Trivia> answers = new ArrayList<>(); //all the other Trivia that can be answers to this trivia
     ArrayList<Trivia> old; //previous versions of this Trivia so you know you aren't going crazy when things change
 
@@ -26,13 +25,15 @@ public class Trivia {
         this.sourceDate = date;
     }
 
-    public String getNode() {
-        return node;
-    }
 
     public String getCategory() {
         return category;
     }
+    public String getNode() {
+        return node;
+    }
+    public String getSource() {return source;}
+    public Date getSourceDate() {return sourceDate;}
     public ArrayList<Trivia> getAnswers() {
         return answers;
     }

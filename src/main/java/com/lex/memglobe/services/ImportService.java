@@ -3,7 +3,6 @@ package com.lex.memglobe.services;
 import com.lex.memglobe.objects.CardSet;
 import com.lex.memglobe.objects.Trivia;
 import java.io.File;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
