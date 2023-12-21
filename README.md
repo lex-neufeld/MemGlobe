@@ -75,3 +75,8 @@ or for two countries to point to the same language, and that language to point b
 adding/maintaining information to the database can still be done with a hierarchy when it makes sense by using templates
 Call up a trivia, and it will display all, or a pre-defined set of, the linked information as if they were members of it, but really france links to paris the same way paris links to france and neither are members of eachother, and a treaty could link back to paris without france or paris being linked to that treaty
 
+How to merge and update data from lots of different sources? As the sources are likely to change, and some have very different node structure, duplicate code is less scary than breaking the whole program trying to maintain compatibility. 
+A 3 step plan:
+1. Scrape to CSV. Each source has its own scraper. Updating a scraper shouldn't affect any of the other scrapers or importers. Scrapers scrape to CSVs in a format that is semi-standardized between sources. The new CSV can be compared to the old one to determine if an update is needed. 
+2. Import to CardSet. CardSets are initially Imported from CSVs. Each source CSV can have its own importer as needed for different node structures, but the semi-standardization will reduce some of the duplicate code blocks. CardSets are standardized.
+3. Update CardSets from other CardSets. You might still need lots of different importers for different node structures in sources or targets, but there should be no duplicate methods.
