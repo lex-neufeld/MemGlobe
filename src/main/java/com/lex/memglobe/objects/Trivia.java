@@ -37,11 +37,12 @@ public class Trivia {
     public ArrayList<Trivia> getAnswers() {
         return answers;
     }
-    public void displayAnswers(){
+    public String displayAnswers(){
+        String text = "Answers:\n";
         for (Trivia answer : answers){
-            System.out.print(answer.getCategory() + ": ");
-            answer.display.display();
+            text += answer.getCategory() + ": " + answer.display.getText() + "\n";
         }
+        return text;
     }
 
     public void setAnswers(ArrayList<Trivia> answers) {
