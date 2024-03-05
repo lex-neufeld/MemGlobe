@@ -21,7 +21,7 @@ public class MemGlobeApplication {
         //create card sets from files
         System.out.println("Importing " + addaFile + " to set1.");
         ImportService.importAdda247(addaFile, set1);
-        System.out.println("number of nodes in set1 before merge is: " + set1.getNodes().size());
+        System.out.println("number of nodes in set1 before merge is: " + set1.getClusters().size());
         System.out.println("set1 Deck before merge has size: " + set1.getDeck().size());
 
         System.out.println("Importing " + geoFile + " to set2.");
@@ -31,8 +31,8 @@ public class MemGlobeApplication {
         // iterate through the nodes of set 2 until we find a "new" one that isn't in set 1
         // do this before merging the sets
         String testNode = "uninitialized";
-        for (String n : set2.getNodes().keySet()){
-            if ( !set1.getNodes().containsKey(n)){
+        for (String n : set2.getClusters().keySet()){
+            if ( !set1.getClusters().containsKey(n)){
                 testNode = n;
                 break;
             }
@@ -53,7 +53,7 @@ public class MemGlobeApplication {
         //test run
         System.out.println();
         System.out.println("test run set1");
-        System.out.println("number of nodes is: " + set1.getNodes().size());
+        System.out.println("number of nodes is: " + set1.getClusters().size());
         System.out.println("Deck has size: " + set1.getDeck().size());
         for (int i = 3; i < 13; i+=4) {
             //small test of source and sourceDate
@@ -69,7 +69,7 @@ public class MemGlobeApplication {
 
         // small test of nodes HashMap
         // iterate through node testNode
-        for (Trivia trivia : set1.getNodes().get(testNode)){
+        for (Trivia trivia : set1.getClusters().get(testNode)){
             System.out.println(trivia.getQuestion());
             myScanner.nextLine();
             System.out.println(trivia.displayAnswers());

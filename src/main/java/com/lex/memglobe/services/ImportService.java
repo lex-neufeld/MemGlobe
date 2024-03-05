@@ -66,7 +66,7 @@ public class ImportService {
                 //get node name for the current line (ie, the Country)
                 node = currentLine[0];
                 //add it to CardSet.nodes
-                currentSet.initNode(node);
+                currentSet.initCluster(node);
 
                 //for each item in currentLine
                 for (int i = 0; i < currentLine.length; i++){
@@ -77,7 +77,7 @@ public class ImportService {
                     //set the Display
                     currentTrivia.setQuestion(currentLine[i]);
                     //add Trivia to its node
-                    currentSet.addToNode(node, currentTrivia);
+                    currentSet.addToCluster(node, currentTrivia);
                 }
                 //set the answers for each Trivia to the other items from currentLine
                 //TODO set .answers for Trivia IFF they are flagged askable

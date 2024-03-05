@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class CardSet {
     String name;
     ArrayList<Trivia> deck = new ArrayList<>();
-    HashMap<String, ArrayList<Trivia>> nodes = new HashMap<>();
+    HashMap<String, ArrayList<Trivia>> clusters = new HashMap<>();
     ArrayList<String> categories = new ArrayList<>();
 
     public CardSet(String name) {
@@ -31,27 +31,27 @@ public class CardSet {
 
     public void addTrivia(Trivia trivia){
         deck.add(trivia);
-        //TODO add some checks for nodeExists, categoryExists, !duplicateTrivia
+        //TODO add some checks for clusterExists, categoryExists, !duplicateTrivia
     }
 
-    public HashMap<String, ArrayList<Trivia>> getNodes() {
-        return nodes;
+    public HashMap<String, ArrayList<Trivia>> getClusters() {
+        return clusters;
     }
 
-    public void setNodes(HashMap<String, ArrayList<Trivia>> nodes) {
-        this.nodes = nodes;
+    public void setClusters(HashMap<String, ArrayList<Trivia>> clusters) {
+        this.clusters = clusters;
     }
 
-    public void initNode(String node) {
-        if (this.nodes.containsKey(node)){
-            //If the node is already present, something has probably gone wrong. Generate and error and do not add a duplicate.
-            System.out.println("Node already exists.");
+    public void initCluster(String cluster) {
+        if (this.clusters.containsKey(cluster)){
+            //If the cluster is already present, something has probably gone wrong. Generate and error and do not add a duplicate.
+            System.out.println("Cluster already exists.");
         }else{
-            this.nodes.put(node, new ArrayList<Trivia>());
+            this.clusters.put(cluster, new ArrayList<>());
         }
     }
-    public void addToNode(String node, Trivia trivia){
-        nodes.get(node).add(trivia);
+    public void addToCluster(String cluster, Trivia trivia){
+        clusters.get(cluster).add(trivia);
     }
 
     public ArrayList<String> getCategories() {
@@ -64,7 +64,7 @@ public class CardSet {
 
     public void addCategory(String category){
         if (this.categories.contains(category)){
-            //If the category is already present, something has probably gone wrong.
+            //If the category is already present, something has probably gone wrong. Generate error message and don't create a duplicate.
             System.out.println("Category already exists.");
         }else{
             this.categories.add(category);
