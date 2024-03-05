@@ -5,9 +5,10 @@ import java.util.HashMap;
 
 public class CardSet {
     String name;
-    ArrayList<Trivia> deck = new ArrayList<>();
-    HashMap<String, ArrayList<Trivia>> clusters = new HashMap<>();
-    ArrayList<String> categories = new ArrayList<>();
+    ArrayList<Trivia> deck = new ArrayList<>(); //each CardSet should contain exactly one deck of Trivia
+    ArrayList<String> categories = new ArrayList<>(); //list of categories in this CardSet
+    HashMap<String, ArrayList<Trivia>> clusters = new HashMap<>(); //map of the members of clusters to support quick iteration
+    ArrayList<String> groups; //list of groups present in this CardSet
 
     public CardSet(String name) {
         this.name = name;
@@ -25,49 +26,33 @@ public class CardSet {
         return deck;
     }
 
-    public void setDeck(ArrayList<Trivia> deck) {
-        this.deck = deck;
-    }
-
     public void addTrivia(Trivia trivia){
         deck.add(trivia);
         //TODO add some checks for clusterExists, categoryExists, !duplicateTrivia
     }
-
-    public HashMap<String, ArrayList<Trivia>> getClusters() {
-        return clusters;
+    public ArrayList<String> getCategories() {
+        return categories;
     }
-
-    public void setClusters(HashMap<String, ArrayList<Trivia>> clusters) {
-        this.clusters = clusters;
+    public void addCategory(String category){
+        if (this.categories.contains(category)){
+            //If the category is already present, something has probably gone wrong. Generate error and don't create a duplicate.
+            System.out.println("Category already exists.");
+        }else{
+            this.categories.add(category);
+        }
     }
+    public HashMap<String, ArrayList<Trivia>> getClusters() {return clusters;}
 
     public void initCluster(String cluster) {
         if (this.clusters.containsKey(cluster)){
-            //If the cluster is already present, something has probably gone wrong. Generate and error and do not add a duplicate.
+            //If the cluster is already present, something has probably gone wrong. Generate error and don't create a duplicate.
             System.out.println("Cluster already exists.");
         }else{
-            this.clusters.put(cluster, new ArrayList<>());
+            this.clusters.put(cluster, new ArrayList<Trivia>());
         }
     }
     public void addToCluster(String cluster, Trivia trivia){
         clusters.get(cluster).add(trivia);
     }
 
-    public ArrayList<String> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(ArrayList<String> categories) {
-        this.categories = categories;
-    }
-
-    public void addCategory(String category){
-        if (this.categories.contains(category)){
-            //If the category is already present, something has probably gone wrong. Generate error message and don't create a duplicate.
-            System.out.println("Category already exists.");
-        }else{
-            this.categories.add(category);
-        }
-    }
 }
