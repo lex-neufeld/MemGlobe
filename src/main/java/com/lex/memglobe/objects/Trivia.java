@@ -4,20 +4,21 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Trivia {
-    String id; //unique name
-    Display display = new Display(); //primary information to be presented: text, audio, map, picture, etc.
-    String category; //each trivia belongs to exactly one widely accepted category of Geography Trivia such as Country, Capital, River. It probably needs to be repeated in the id such as France_Country, France_Capital, Sein_River
+    String triviaName; //unique name to make maintenance easier. snake case of the question with category ex: france_Country, france_Map, france_Flag, french_Greeting, paris_Capital
+    String question; //this text is what the user sees. Can be html link to media.
+    ArrayList<Trivia> answers = new ArrayList<>(); //all the other Trivia that can be answers to this Trivia
+    String category; //each trivia belongs to exactly one widely accepted category of Geography Trivia such as Country, Capital, River, Flag. It needs to be repeated in the triviaName such as france_country, france_flag
     String node;
     ArrayList<String> groups; //For establishing group rules. For internal logic, this is actually redundant with category, but makes the structure easier to understand. Examples of groups that could be used to filter trivia in or out include regions (Africa, EU), alliances (NATO, CSTO), landlocked, on the Danube.
     Object location; //various latitude and longitude values
     boolean askable; //can this trivia be used as a question to other trivia?
     String source;
     Date sourceDate;
-    ArrayList<Trivia> answers = new ArrayList<>(); //all the other Trivia that can be answers to this trivia
+
     ArrayList<Trivia> old; //previous versions of this Trivia so you know you aren't going crazy when things change
 
-    public Trivia(String id, String category, String node, boolean askable, String source, Date date) {
-        this.id = id;
+    public Trivia(String triviaName, String category, String node, boolean askable, String source, Date date) {
+        this.triviaName = triviaName;
         this.category = category;
         this.node = node;
         this.askable = askable;
@@ -25,6 +26,14 @@ public class Trivia {
         this.sourceDate = date;
     }
 
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
 
     public String getCategory() {
         return category;
@@ -40,7 +49,7 @@ public class Trivia {
     public String displayAnswers(){
         String text = "Answers:\n";
         for (Trivia answer : answers){
-            text += answer.getCategory() + ": " + answer.display.getText() + "\n";
+            text += answer.getCategory() + ": " + answer.getQuestion() + "\n";
         }
         return text;
     }
@@ -55,15 +64,7 @@ public class Trivia {
         }
     }
 
-    public Display getDisplay() {
-        return display;
-    }
-
-    public void setDisplay(Display display) {
-        this.display = display;
-    }
-
-    public String getId() {
-        return id;
+    public String getTriviaName() {
+        return triviaName;
     }
 }

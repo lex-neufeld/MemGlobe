@@ -31,7 +31,7 @@ public class DeckBrowser extends JFrame{
         btnNextCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                lblQuestionDisplay.setText(currentSet.getDeck().get(Integer.parseInt(txtNextCard.getText())).getDisplay().getText());
+                lblQuestionDisplay.setText(currentSet.getDeck().get(Integer.parseInt(txtNextCard.getText())).getQuestion());
                 txtAnswerDisplay.setText("");
             }
         });

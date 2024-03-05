@@ -37,6 +37,7 @@ public class MemGlobeApplication {
                 break;
             }
         }
+        System.out.println(testNode);
 
         //merge card sets
         System.out.println("merging set2 into set1");
@@ -58,7 +59,7 @@ public class MemGlobeApplication {
             //small test of source and sourceDate
             System.out.println("from source: " + set1.getDeck().get(i).getSource());
             System.out.println("on date: " + set1.getDeck().get(i).getSourceDate());
-            set1.getDeck().get(i).getDisplay().display();
+            System.out.println(set1.getDeck().get(i).getQuestion());
             myScanner.nextLine();
             System.out.println(set1.getDeck().get(i).displayAnswers());
 
@@ -68,13 +69,10 @@ public class MemGlobeApplication {
 
         // small test of nodes HashMap
         // iterate through node testNode
-        System.out.println(set1.getNodes().get(testNode));
-        System.out.println(set2.getNodes().get(testNode));
         for (Trivia trivia : set1.getNodes().get(testNode)){
-            trivia.getDisplay().display();
+            System.out.println(trivia.getQuestion());
             myScanner.nextLine();
-            System.out.println("Answers:");
-            trivia.displayAnswers();
+            System.out.println(trivia.displayAnswers());
         }
     }
 }
