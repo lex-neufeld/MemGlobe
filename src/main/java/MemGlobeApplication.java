@@ -59,9 +59,9 @@ public class MemGlobeApplication {
             //small test of source and sourceDate
             System.out.println("from source: " + set1.getDeck().get(i).getSource());
             System.out.println("on date: " + set1.getDeck().get(i).getSourceDate());
-            System.out.println(set1.getDeck().get(i).getQuestion());
+            System.out.println(set1.getDeck().get(i).getAnswer());
             myScanner.nextLine();
-            System.out.println(set1.getDeck().get(i).displayAnswers());
+            System.out.println(set1.getDeck().get(i).displayQuestions());
 
         }
 
@@ -70,9 +70,9 @@ public class MemGlobeApplication {
         // small test of nodes HashMap
         // iterate through node testNode
         for (Trivia trivia : set1.getClusters().get(testNode)){
-            System.out.println(trivia.getQuestion());
+            System.out.println(trivia.getAnswer());
             myScanner.nextLine();
-            System.out.println(trivia.displayAnswers());
+            System.out.println(trivia.displayQuestions());
         }
     }
 }

@@ -75,7 +75,7 @@ public class ImportService {
                     //add Trivia to currentSet
                     currentSet.addTrivia(currentTrivia);
                     //set the Display
-                    currentTrivia.setQuestion(currentLine[i]);
+                    currentTrivia.setAnswer(currentLine[i]);
                     //add Trivia to its node
                     currentSet.addToCluster(node, currentTrivia);
                 }

@@ -31,14 +31,14 @@ public class DeckBrowser extends JFrame{
         btnNextCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                lblQuestionDisplay.setText(currentSet.getDeck().get(Integer.parseInt(txtNextCard.getText())).getQuestion());
+                lblQuestionDisplay.setText(currentSet.getDeck().get(Integer.parseInt(txtNextCard.getText())).getAnswer());
                 txtAnswerDisplay.setText("");
             }
         });
         btnShowAnswer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtAnswerDisplay.setText(currentSet.getDeck().get(Integer.parseInt(txtNextCard.getText())).displayAnswers());
+                txtAnswerDisplay.setText(currentSet.getDeck().get(Integer.parseInt(txtNextCard.getText())).displayQuestions());
 
             }
         });
